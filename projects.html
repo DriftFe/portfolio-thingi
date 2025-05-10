@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Portfolio - Projects</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
+  <script src="main.js"></script>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+    }
+    .bg-gray-800 {
+      background-color: #1e293b;
+    }
+    .text-white {
+      color: #fff;
+    }
+    .py-4 {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .flex {
+      display: flex;
+    }
+    .justify-between {
+      justify-content: space-between;
+    }
+    .items-center {
+      align-items: center;
+    }
+    .space-x-6 {
+      gap: 1.5rem;
+      display: flex;
+    }
+    .text-2xl {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+    .font-semibold {
+      font-weight: 600;
+    }
+    .underline-animation {
+      position: relative;
+      text-decoration: none;
+      color: #f8fafc;
+      transition: color 0.3s ease;
+    }
+    .underline-animation::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #84cc16;
+      transform: scaleX(0);
+      transform-origin: bottom center;
+      transition: transform 0.3s ease-out;
+    }
+    .underline-animation:hover,
+    .underline-animation.active {
+      color: #d1d5db;
+    }
+    .underline-animation:hover::after,
+    .underline-animation.active::after {
+      transform: scaleX(1);
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem 1rem;
+    }
+
+    .projects-title {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #d1d5db;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    /* Projects thingi */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    @media (min-width: 768px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .project-card {
+      width: 100%;
+      box-sizing: border-box;
+      background: rgba(55, 65, 81, 0.97);
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      min-height: 480px;
+    }
+    .project-card img {
+      border-radius: 0.5rem;
+      margin-bottom: 1.25rem;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      display: block;
+    }
+    .project-card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #f8fafc;
+    }
+    .project-card p {
+      flex: 1;
+      color: #d1d5db;
+      margin-bottom: 1rem;
+    }
+    .project-card a {
+      color: #60a5fa;
+      text-decoration: underline;
+      font-weight: 500;
+      transition: color 0.2s;
+      margin-top: auto;
+      display: block;
+    }
+    .project-card a:hover {
+      color: #3b82f6;
+    }
+    .project-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+    }
+
+    footer {
+      background: #1e293b;
+      color: #d1d5db;
+      text-align: center;
+      padding: 1.25rem 0 1rem 0;
+      font-size: 1rem;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <header class="bg-gray-800 text-white py-4">
+    <div class="container flex justify-between items-center">
+      <h1 class="text-2xl font-semibold">My Portfolio</h1>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="index.html" class="underline-animation nav-link">About</a></li>
+          <li><a href="projects.html" class="underline-animation nav-link active">Projects</a></li>
+          <li><a href="contact.html" class="underline-animation nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="https://placehold.co/600x400/EEE/31343C" alt="Project 1" />
+        <h3>Project 1</h3>
+        <p>
+         test project 1
+        </p>
+      </div>
+      <div class="project-card">
+        <img src="https://placehold.co/600x400/EEE/31343C" alt="Project 2" />
+        <h3>Project 2</h3>
+        <p>
+          test project 2
+        </p>
+      </div>
+      <div class="project-card">
+        <img src="https://placehold.co/600x400/EEE/31343C" alt="Project 3" />
+        <h3>Project 3</h3>
+        <p>
+          test project 3
+        </p>
+      </div>
+      <div class="project-card">
+        <img src="https://placehold.co/600x400/EEE/31343C" alt="Project 4" />
+        <h3>Project 4</h3>
+        <p>
+          test project 4
+        </p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
