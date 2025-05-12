@@ -8,6 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet" />
   <script src="main.js"></script>
   <style>
+    html { box-sizing: border-box; }
+    *, *:before, *:after { box-sizing: inherit; }
     body {
       min-height: 100vh;
       display: flex;
@@ -27,6 +29,46 @@
       top: 0;
       z-index: 1000;
     }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .text-2xl {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      width: 100%;
+      text-align: center;
+    }
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+    nav a {
+      color: #f8fafc;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.375rem;
+      transition: background 0.15s, color 0.15s;
+    }
+    nav a.active,
+    nav a:hover {
+      background: rgba(255,255,255,0.13);
+      color: #a3e635;
+    }
     main {
       flex: 1;
       padding: 2rem 1rem;
@@ -40,23 +82,29 @@
       border-radius: 1rem;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
       width: 100%;
-      max-width: 600px;
+      max-width: 400px;
       box-sizing: border-box;
       color: #f8fafc;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1, h2, h3 {
+      text-align: center;
     }
     h2 {
-      font-size: 1.875rem;
-      line-height: 2.25rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: #e5e7eb;
-      margin-bottom: 1.5rem;
-      text-align: center;
+      margin-bottom: 1.25rem;
     }
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 1.5rem;
+      gap: 1.2rem;
       justify-items: center;
+      width: 100%;
     }
     .project-card {
       background: rgba(255, 255, 255, 0.05);
@@ -70,9 +118,10 @@
       display: flex;
       flex-direction: column;
       width: 340px;
-      height: 340px;
-      max-width: 90vw;
-      max-height: 90vw;
+      aspect-ratio: 1 / 1;
+      min-width: 0;
+      min-height: 0;
+      margin: 0 auto;
     }
     .project-card:hover {
       transform: translateY(-6px);
@@ -87,7 +136,7 @@
       background: #1e293b;
     }
     .project-info {
-      padding: 1.2rem 1rem;
+      padding: 1rem;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -95,7 +144,7 @@
     }
     .project-title {
       font-weight: 700;
-      font-size: 1.125rem;
+      font-size: 1.1rem;
       margin-bottom: 0.5rem;
       color: #a3e635;
       font-family: 'JetBrains Mono', monospace;
@@ -107,22 +156,59 @@
       flex-grow: 1;
       font-family: 'JetBrains Mono', monospace;
     }
-    @media (max-width: 400px) {
+    @media (max-width: 600px) {
+      .container {
+        gap: 0.5rem;
+      }
+      .text-2xl {
+        margin-bottom: 1.2rem;
+        width: 100%;
+        text-align: center;
+      }
+      nav ul {
+        width: 100%;
+        justify-content: center;
+        gap: 1rem;
+      }
+      main {
+        padding: 1rem 0.2rem;
+      }
+      .center-content {
+        padding: 1rem 0.3rem;
+        border-radius: 0.7rem;
+        max-width: 99vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .projects-grid {
+        width: 100%;
+        justify-items: center;
+      }
       .project-card {
-        width: 98vw;
-        height: 98vw;
-        min-width: 0;
-        min-height: 0;
+        max-width: 98vw;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto;
+      }
+      h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+      }
+      .project-title {
+        font-size: 1rem;
+      }
+      .project-description {
+        font-size: 0.9rem;
       }
     }
   </style>
 </head>
 <body>
   <header class="bg-gray-800 text-white py-4">
-    <div class="container flex justify-between items-center">
+    <div class="container">
       <h1 class="text-2xl font-semibold">My Portfolio</h1>
       <nav>
-        <ul class="flex space-x-6">
+        <ul>
           <li><a href="index.html" class="underline-animation nav-link">About</a></li>
           <li><a href="projects.html" class="underline-animation nav-link active" aria-current="page">Projects</a></li>
           <li><a href="contact.html" class="underline-animation nav-link">Contact</a></li>
