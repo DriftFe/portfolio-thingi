@@ -62,12 +62,18 @@
       font-weight: 500;
       padding: 0.25rem 0.5rem;
       border-radius: 0.375rem;
-      transition: background 0.15s, color 0.15s;
+      transition: color 0.15s;
     }
     nav a.active,
     nav a:hover {
-      background: rgba(255,255,255,0.13);
       color: #a3e635;
+    }
+    @media (max-width: 600px) {
+      nav a.active,
+      nav a:hover {
+        background: rgba(255,255,255,0.13);
+        color: #a3e635;
+      }
     }
     main {
       flex: 1;
@@ -82,13 +88,13 @@
       border-radius: 1rem;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
       width: 100%;
-      max-width: 1100px;
+      max-width: 1200px;
       box-sizing: border-box;
       color: #f8fafc;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: stretch; /* Make content fill width for grid centering */
     }
     h1, h2, h3 {
       text-align: center;
@@ -101,9 +107,12 @@
     }
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
       justify-items: center;
+      justify-content: center;
+      max-width: 740px; /* 2 cards per row, each max 340px + gap */
+      margin: 0 auto;
       width: 100%;
     }
     .project-card {
@@ -122,7 +131,6 @@
       max-width: 340px;
       min-width: 0;
       min-height: 0;
-      margin: 0 auto;
     }
     .project-card:hover {
       transform: translateY(-6px);
@@ -161,6 +169,9 @@
       .center-content {
         max-width: 99vw;
       }
+      .projects-grid {
+        max-width: 99vw;
+      }
     }
     @media (max-width: 600px) {
       .container {
@@ -185,17 +196,18 @@
         max-width: 99vw;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
       }
       .projects-grid {
         grid-template-columns: 1fr;
+        max-width: 99vw;
         width: 100%;
         justify-items: center;
+        justify-content: center;
       }
       .project-card {
         max-width: 98vw;
         aspect-ratio: 1 / 1;
-        margin: 0 auto;
       }
       h2 {
         font-size: 1.1rem;
@@ -241,6 +253,7 @@
             <p class="project-description">A small browser based life simulator.</p>
           </div>
         </a>
+        <!-- Add more cards here and the grid will auto-fit! -->
       </div>
     </section>
   </main>
